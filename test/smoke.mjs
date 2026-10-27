@@ -63,6 +63,7 @@ ok('注入了记忆维护指引', text1.includes('【记忆维护'));
 ok('全新安装带【第一次见面】引导', text1.includes('【第一次见面'));
 ok('三个工具都注册了', A.tools.length === 3, A.tools.map((t) => t.name).join(','));
 ok('工具都带 output 声明', A.tools.every((t) => t.output && t.output.schema && typeof t.output.render === 'function'));
+ok('render 返回内容块数组（不是裸字符串）', A.tools.every((t) => { const r = t.output.render({}, { ok: true }); return Array.isArray(r) && r.length > 0 && typeof r[0].text === 'string'; }));
 
 // ── 场景 2：工具闭环 ──────────────────────────────────────────────────────
 console.log('\n[2] 工具闭环');
@@ -80,7 +81,7 @@ const w4 = await write.execute({ what: 'loops', content: '约定：明天提醒�
 ok('memory_write(loops)', w4.ok === true);
 
 const r1 = await read.execute({ what: 'diary' });
-ok('memory_read(diary) 能读回刚写的内容', r1.ok && r1.content.includes('谢哥'));
+ok('memory_read(diary) 能读回刚写的内容', r1.ok && r1.text.includes('谢哥'));
 const s1 = await search.execute({ query: '谢哥 伞' });
 ok('memory_search 能搜到（≥2 条）', s1.ok && s1.total >= 2, `total=${s1.total}`);
 

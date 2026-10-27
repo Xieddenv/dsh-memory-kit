@@ -36,13 +36,37 @@
 
 > 只分享**记忆方法**，不带任何人设/性格：装完是空白模板，你自己填（或从旧记忆迁移）。
 
-## 截图
+## 装好之后长什么样
 
-| 记忆注入（模型看到什么） | 三个工具 |
-|---|---|
-| ![注入](assets/shot-1.png) | ![工具](assets/shot-2.png) |
+不需要截图也能判断它活着——装完重启 DSH，看这三个地方：
 
-> 截图待补：装好后截一张"插件日志"、一张"memory_search 结果"放进 `assets/` 即可。
+**① 日志里有这五行**（`<DSH_HOME>/memory-kit/memory-kit.log`）
+
+```
+memory dir = ...\.dsh\memory-kit\memory
+prompt section updated（552 字）
+tool registered: memory_read
+tool registered: memory_write
+tool registered: memory_search
+dsh-memory-kit ready
+```
+
+**② 记忆目录建出来了**
+
+```
+<DSH_HOME>/memory-kit/memory/
+├─ persona.md       ← 她是谁（还是模板就说明没填）
+├─ style.md
+├─ open-loops.md
+├─ diary/
+└─ session-log/
+```
+
+**③ 问一句就能验工具**
+
+> 「你还记得我们上次聊了什么吗」→ 她应该先调 `memory_search`，再回答；搜不到会说搜不到，而不是编。
+
+> 想看图？`assets/` 目录留给后续补截图用，现在不放引用，免得 README 显示破图。
 
 ## 它解决什么问题
 

@@ -2,17 +2,39 @@
 
 [![smoke](https://github.com/Xieddenv/dsh-memory-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/Xieddenv/dsh-memory-kit/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![dsh](https://img.shields.io/badge/dsh-%3E%3D0.2.0--rc.2-4b5563)](package.json#L10)
+[![dsh](https://img.shields.io/badge/dsh-%3E%3D0.2.0--rc.2-4b5563)](package.json)
 
-> 给 DeepSeek Harness 装一套"不会健忘"的记忆：会话重置之后，她仍然记得你是谁、聊过什么、答应过什么。
+> 给 DSH 里的机器人装**五层记忆**：会话重置之后，她还记得你是谁、聊过什么、**答应过你什么**。
+> 装完就灵——不写配置、不配数据库、不联网、零依赖。
 
-**装完就灵**：插件启动时自动建目录、写空白模板，把记忆拼进 system prompt，并给模型三个维护记忆的工具。不用改宿主、不用配数据库、不联网、零运行时依赖。
+## 为什么不是"又一个 MEMORY.md"
+
+大多数记忆插件给你一个文件（或一个 storage 键）。问题是：**"她是谁"、"她该怎么说话"、"发生过什么"、"答应过什么"** 混在一起，模型每天重读 700 字人设和 30 天流水，注意力全摊薄了。
+
+这套把记忆拆成五层，**每层有独立的注入预算和淘汰规则**：
+
+| 层 | 文件 | 解决什么 | 注入 |
+|---|---|---|---|
+| 身份 | `persona.md` | 她是谁、你怎么叫她、绝对不要做什么 | ≤700 字 |
+| 规矩 | `style.md` | 她该怎么说话（被纠正一次就长一条） | 最后 12 条 |
+| 情节 | `diary/<日期>.md` | 发生过什么（越近越细） | 最近 7 天索引 |
+| 近期 | `session-log/` | 上次聊到哪（**顶部带"这次聊了什么"要点**） | 最近一份 |
+| 约定 | `open-loops.md` | **答应过你、还没做完的事** ← 别家基本没有这层 | 最后 5 条 |
+
+## 装完就灵到什么程度
+
+- 启动即建目录 + 空白模板 + 注入 system prompt + 挂 3 个工具（`memory_read/write/search`）
+- **第一次对话她会主动问你叫什么**，然后自己写人设、写第一句日记（不用你教她怎么用）
+- 老记忆可一键迁移：`node bin/import.mjs --from <旧目录>`
+- 25 项自检：`node test/smoke.mjs` → 全绿
+
+```
+✓ 全新安装：五层文件建出、五段注入齐全、首次引导出现、三工具注册
+✓ 工具闭环：write → read → search 全通
+✓ 二次加载：引导消失、真实人设生效、注入 804 → 488 字
+```
 
 > 只分享**记忆方法**，不带任何人设/性格：装完是空白模板，你自己填（或从旧记忆迁移）。
-
-**30 秒验证它没坏**：`node test/smoke.mjs` → 25 项断言全过。
-
----
 
 ## 截图
 

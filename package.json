@@ -1,6 +1,6 @@
 {
   "name": "@xie/dsh-memory-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "让 DSH 里的机器人不再健忘：五层记忆（人设/规则/日记/会话存档/未了结的事）自动注入，配三个记忆工具，装完即用。",
   "type": "module",
   "main": "./lib/index.js",

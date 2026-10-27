@@ -25,8 +25,9 @@
 
 - 启动即建目录 + 空白模板 + 注入 system prompt + 挂 3 个工具（`memory_read/write/search`）
 - **第一次对话她会主动问你叫什么**，然后自己写人设、写第一句日记（不用你教她怎么用）
-- 老记忆可一键迁移：`node bin/import.mjs --from <旧目录>`
-- 25 项自检：`node test/smoke.mjs` → 全绿
+- 老记忆可一键迁移：直接跑 `node bin/import.mjs` 就会**自动探测**旧记忆目录并列出候选；
+  知道路径用 `--from <旧目录>`，探测不到用 `--scan D:\` 深扫
+- 26 项自检：`node test/smoke.mjs` → 全绿
 
 ```
 ✓ 全新安装：五层文件建出、五段注入齐全、首次引导出现、三工具注册

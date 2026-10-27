@@ -1,0 +1,28 @@
+name: Feature request
+description: 希望记忆系统多点什么
+title: "[feat] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你遇到的问题
+      description: 说场景，别说方案。"她记不住我上周说的项目" 比 "加个向量库" 有用。
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你想到的做法（可选）
+  - type: dropdown
+    id: layer
+    attributes:
+      label: 涉及哪一层记忆
+      options:
+        - persona（人设）
+        - style（说话规则）
+        - diary（日记）
+        - session-log（会话存档）
+        - open-loops（未了结的事）
+        - 注入 / 工具 / 安装
+        - 不确定

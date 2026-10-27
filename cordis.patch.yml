@@ -1,0 +1,19 @@
+# dsh-memory-kit 的装配入口（bundle patch）。
+# id 只用于 Loader 定位；记忆目录由 config.dir 决定。
+#
+# ⚠️ name 必须加引号：YAML 里以 @ 开头的裸标量是非法的（@ 是保留指示符），
+# 不 quoting 会让整个 patch 解析失败 → 插件 entry 静默消失（踩过）。
+- insert:
+    - id: memory-kit
+      name: "@xie/dsh-memory-kit"
+      config:
+        # 记忆目录。留空 = <DSH_HOME>/memory-kit/memory
+        dir: ''
+        # 首次启动时从旧记忆目录迁移（只补空缺，不覆盖）。留空 = 不迁移。
+        importFrom: ''
+        personaMaxChars: 700
+        styleTailLines: 12
+        diaryIndexDays: 7
+        openLoopsTailLines: 5
+        # 每隔多少秒检查记忆文件变化（变了就重建注入段落）
+        refreshSeconds: 60

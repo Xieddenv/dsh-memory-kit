@@ -1,0 +1,47 @@
+{
+  "name": "@xie/dsh-memory-kit",
+  "version": "0.1.0",
+  "description": "让 DSH 里的机器人不再健忘：五层记忆（人设/规则/日记/会话存档/未了结的事）自动注入，配三个记忆工具，装完即用。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "memory",
+    "agent",
+    "chatbot",
+    "persona"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xieddenv/dsh-memory-kit.git"
+  },
+  "homepage": "https://github.com/Xieddenv/dsh-memory-kit#readme",
+  "bugs": {
+    "url": "https://github.com/Xieddenv/dsh-memory-kit/issues"
+  },
+  "engines": {
+    "dsh": ">=0.2.0-rc.2 <0.3.0",
+    "node": ">=20"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "test",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/smoke.mjs",
+    "smoke": "node test/smoke.mjs"
+  }
+}

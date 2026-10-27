@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+# 打包产物
+*.zip
+# 本地记忆目录（如果你把 dir 指到仓库里，别提交）
+memory/

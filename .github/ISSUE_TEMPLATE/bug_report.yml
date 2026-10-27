@@ -1,0 +1,47 @@
+name: Bug report
+description: 装了/用了之后不对头
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        先跑 `node test/smoke.mjs`，把结果贴上来（25 项全过说明插件本体没问题，是环境或配置的事）。
+  - type: input
+    id: dsh
+    attributes:
+      label: DSH 版本
+      placeholder: 例如 0.2.0-rc.2（设置页可见）
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node 版本
+      placeholder: node --version 的输出
+    validations:
+      required: true
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: 现象
+      options:
+        - 插件没生效（记忆没注入）
+        - 工具看不到 / 调不了
+        - 首次引导没出现
+        - 记忆文件没生成
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: memory-kit.log 最后 20 行
+      description: 位置是 <DSH_HOME>/memory-kit/memory-kit.log
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: more
+    attributes:
+      label: 补充说明

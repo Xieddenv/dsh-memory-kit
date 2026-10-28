@@ -8,7 +8,7 @@
 
 **方式 A：网页上传（最快，零安装）**
 
-1. 打开 https://github.com/new，仓库名 `@xie/dsh-memory-kit`，公开，不要勾 README
+1. 打开 https://github.com/new，仓库名 `dsh-memory-kit-xie`，公开，不要勾 README
 2. 进仓库 → **Add file → Upload files** → 把本目录下这些**拖进去**：
    ```
    lib/  bin/  test/  .github/  .gitignore
@@ -51,7 +51,7 @@ npm publish --access public
 发完验证：
 
 ```bash
-npm view @xie/dsh-memory-kit version
+npm view dsh-memory-kit-xie version
 ```
 
 ---
@@ -64,7 +64,7 @@ npm view @xie/dsh-memory-kit version
 
 ```json
 {
-  "name": "@xie/dsh-memory-kit",
+  "name": "dsh-memory-kit-xie",
   "version": "0.1.0",
   "description": "让 DSH 里的机器人不再健忘：五层记忆（人设/规则/日记/会话存档/未了结的事）自动注入 + 三个记忆工具，装完即用。",
   "keywords": ["memory", "persona", "chatbot", "agent"],

@@ -117,7 +117,7 @@ DSH 的会话会被重置（省钱、防跑偏），代价是：
 1. 把本目录复制到 `<DSH_HOME>/plugins/dsh-memory-kit`
 2. 建链接：`<DSH_HOME>/profiles/<profile>/node_modules/dsh-memory-kit` → 上面那个目录
 3. 编辑 `<DSH_HOME>/profiles/<profile>/package.json`：
-   - `dependencies` 加 `"@xie/dsh-memory-kit": "link:<DSH_HOME>/plugins/dsh-memory-kit"`
+   - `dependencies` 加 `"dsh-memory-kit-xie": "link:<DSH_HOME>/plugins/dsh-memory-kit"`
    - `dsh.profile.bundles` 数组里加 `"dsh-memory-kit"`
 4. 重启 DSH
 

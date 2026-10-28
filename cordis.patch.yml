@@ -5,7 +5,7 @@
 # 不 quoting 会让整个 patch 解析失败 → 插件 entry 静默消失（踩过）。
 - insert:
     - id: memory-kit
-      name: "@xie/dsh-memory-kit"
+      name: dsh-memory-kit-xie
       config:
         # 记忆目录。留空 = <DSH_HOME>/memory-kit/memory
         dir: ''
